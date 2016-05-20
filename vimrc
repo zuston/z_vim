@@ -10,6 +10,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'git@github.com:forever-713/nerdcommenter.git'
 Plugin 'git@github.com:forever-713/phpcomplete.vim.git'
 Plugin 'git@github.com:vim-scripts/AutoComplPop.git'
+Plugin 'tomasr/molokai'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 call vundle#end()
 filetype plugin indent on
 
@@ -21,11 +24,9 @@ set history=1000
 let pair_program_mode = 0
 scriptencoding utf-8
 set encoding=utf-8
-syntax on
 set number
 set nowrap
 set vb
-set ruler
 let g:buftabs_only_basename=1
 let g:buftabs_marker_modified = "+"
 
@@ -56,9 +57,27 @@ noremap <silent> <C-l> :bnext<CR>
 
 "==============常用映射键设置=======================
 noremap <Leader>w :w<CR>
+noremap <Leader>q :wq<CR>
 
-
-
+set ignorecase
+" 设置博景色和主题
+let g:molokai_original = 1
+colorscheme molokai
+" 显示光标当前位置
+set ruler
+" 高亮显示光标所在位置
+set cursorline
+set cursorcolumn
+" 总是显示状态栏
+set laststatus=2
+" 代码高亮
+syntax enable
+syntax on
+" the  snippets Options
+let g:UltiSnipsSnippetDirectories=["mysnippets"]
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "------  NERDTree Options  ------
 let NERDTreeIgnore=['CVS','\.dSYM$', '.git', '.DS_Store', '\.swp$','\.swo$','.idea']
 let NERDTreeChDirMode=2
